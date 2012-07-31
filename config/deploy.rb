@@ -16,7 +16,7 @@ set :user, "nick"
 set :scm_username, "mudgen"
 set :use_sudo, false
 
-set :rvm_type, :system
+set :rvm_ruby_string, '1.9.3'
 require "rvm/capistrano"
 
 
