@@ -1,13 +1,24 @@
+# -*- coding: utf-8 -*-
 set :application, "Remote Jobs"
-set :repository,  "set your repository location here"
+set :repository,  "https://github.com/mudgen/Telecommute-Job-Board.git"
 
-set :scm, :subversion
+set :scm, :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
-role :web, "your web-server here"                          # Your HTTP server, Apache/etc
-role :app, "your app-server here"                          # This may be the same as your `Web` server
-role :db,  "your primary db-server here", :primary => true # This is where Rails migrations will run
-role :db,  "your slave db-server here"
+set :deploy_to, "/home/nick/blueparen.com/rjobs"
+
+role :web, "nickmudge.info"                          # Your HTTP server, Apache/etc
+role :app, "nickmudge.info"                          # This may be the same as your `Web` server
+role :db,  "nickmudge.info", :primary => true # This is where Rails migrations will run
+#role :db,  "your slave db-server here"
+
+set :user, "nick"
+set :scm_username, "mudgen"
+set :use_sudo, false
+
+set :rvm_type, :system
+require "rvm/capistrano"
+
 
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
@@ -23,3 +34,5 @@ namespace :deploy do
      run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
    end
  end
+
+require "bundler/capistrano"
