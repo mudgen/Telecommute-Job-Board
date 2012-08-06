@@ -1,13 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Rjobs</title>
+  <title>Telecommute Software and Design Jobs</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<body>
+  <div id="frame">
+    <div id="header" style="width:100%;">
+      <div style="font-weight:bold;font-size:25px; width: 500px;float:left;">
+        100 Percent Telecommute Jobs
+      </div>
+      <div id="post-job"><a href="/jobs/post-job" rel="Post a Job" title="Post a Job">Post a job</a></div>
+    </div>
+    <div class="curved-border" id="content">
+      <div class="home">
+	<h1 id="job-header">Jobs</h1>
+	<ul id="job-list">
+	  <li>
+	    <span class="location">Oslo</span>
+	    <span class="job-title"><a href="/jobs/job/50163734975a9026161548db">Test specialist</a></span>
+	    <span class="at">at</span><span class="company">Kvikklunsj systems</span>
+	    <span class="date">30 July</span>
+	</li>
+	</ul>
+      </div>
+    </div>
 <%= yield %>
 
 </body>
